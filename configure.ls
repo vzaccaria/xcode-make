@@ -11,6 +11,8 @@ parse ->
     @collect "build", ->
         @toDir ".", -> [
             @es6 "./index.js"
+            @es6 "./lib/parseWithData.js"
+            @es6 "./lib/readTemplate.js"
         ]
 
     # @collect "build", ->

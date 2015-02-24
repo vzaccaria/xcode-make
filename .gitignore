@@ -6,3 +6,6 @@ pippo.xcodeproj
 .build
 generated.pbx
 index.es5.js
+lib/parseWithData.es5.js
+lib/readTemplate.es5.js
+makefile

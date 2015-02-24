@@ -6,7 +6,7 @@
 parse ->
 
     @add-plugin "es6", (g) ->
-        @compile-files( (-> "6to5 #{it.orig-complete} -o #{it.build-target}" ) , ".es5.js", g)
+        @compile-files( (-> "#{__dirname}/node_modules/.bin/babel #{it.orig-complete} -o #{it.build-target}" ) , ".es5.js", g)
 
     @collect "build", ->
         @toDir ".", -> [
@@ -29,6 +29,6 @@ parse ->
     @collect "all", -> 
         @command-seq -> [
             @make \build
-            @cmd "node ./index.es5.js"
+            @cmd "DEBUG=* node ./index.es5.js"
         ]
 

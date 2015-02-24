@@ -6,28 +6,43 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+	{% for file in files %}
+		{{file.id}}	 /* {{file.name}} */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = {{file.type}};
+			path = {{file.path}};
+			sourceTree = "<group>";
+		};
+	{% endfor %}
+/* End PBXFileReference section */
+
+
 /* Begin PBXGroup section */
 		30BBF92A1A9B82700067F725 = {
 			isa = PBXGroup;
 			children = (
+			{% for file in files %}
+				{{file.id}}	 /* {{file.name}} */,
+			{% endfor %}
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
-		30BBF92F1A9B82700067F725 /* MyProduct */ = {
+		30BBF92F1A9B82700067F725 /* {{productName}} */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "$(ACTION)";
-			buildConfigurationList = 30BBF9321A9B82700067F725 /* Build configuration list for PBXLegacyTarget "MyProduct" */;
+			buildConfigurationList = 30BBF9321A9B82700067F725 /* Build configuration list for PBXLegacyTarget "{{productName}}" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
 			dependencies = (
 			);
-			name = MyProduct;
+			name = {{productName}};
 			passBuildSettingsInEnvironment = 1;
-			productName = MyProduct;
+			productName = {{productName}};
 		};
 /* End PBXLegacyTarget section */
 
@@ -36,9 +51,9 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = MyName;
+				ORGANIZATIONNAME = {{authorName}};
 			};
-			buildConfigurationList = 30BBF92E1A9B82700067F725 /* Build configuration list for PBXProject "MyProduct" */;
+			buildConfigurationList = 30BBF92E1A9B82700067F725 /* Build configuration list for PBXProject "{{productName}}" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -49,7 +64,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				30BBF92F1A9B82700067F725 /* MyProduct */,
+				30BBF92F1A9B82700067F725 /* {{productName}} */,
 			);
 		};
 /* End PBXProject section */
@@ -149,7 +164,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		30BBF92E1A9B82700067F725 /* Build configuration list for PBXProject "MyProduct" */ = {
+		30BBF92E1A9B82700067F725 /* Build configuration list for PBXProject "{{productName}}" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				30BBF9301A9B82700067F725 /* Debug */,
@@ -158,7 +173,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		30BBF9321A9B82700067F725 /* Build configuration list for PBXLegacyTarget "MyProduct" */ = {
+		30BBF9321A9B82700067F725 /* Build configuration list for PBXLegacyTarget "{{productName}}" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				30BBF9331A9B82700067F725 /* Debug */,
